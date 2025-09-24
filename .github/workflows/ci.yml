@@ -36,3 +36,13 @@ jobs:
       # Run Playwright tests
       - name: Run Playwright tests
         run: npx playwright test --reporter=list
+        
+      # 🚀 Simulated deploy step
+      - name: Simulated Deploy
+        if: success()
+        run: |
+          echo "--------------------------------------"
+          echo "🚀 Simulated deployment successful!"
+          echo "App would be deployed here in a real setup."
+          echo "--------------------------------------"
+
