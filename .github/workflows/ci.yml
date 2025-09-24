@@ -36,6 +36,16 @@ jobs:
       # Run Playwright tests
       - name: Run Playwright tests
         run: npx playwright test --reporter=list
+
+      # 📦 Upload Playwright artifacts kung may failure
+      - name: Upload Playwright Artifacts
+        if: failure() # Tatakbo lang kapag may failed tests
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-artifacts
+          path: |
+            playwright-report
+            test-results
         
       # 🚀 Simulated deploy step
       - name: Simulated Deploy
