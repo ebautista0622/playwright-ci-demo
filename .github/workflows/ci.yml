@@ -7,49 +7,32 @@ on:
     branches: [main]
 
 jobs:
-  build-and-test:
+  playwright-tests:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # 4️⃣ Build project (optional, kung may build step ka)
-      #- name: Build project
-      #   run: npm run build
-
-      # 5️⃣ Run unit/integration tests (optional)
-      - name: Run tests
-        run: npm test
-
-      # 6️⃣ Install Playwright browsers
+      # 🔑 Install Playwright browsers
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      # 7️⃣ Start server for Playwright tests
+      # Start your dev server if needed
       - name: Start server
         run: npm start &
 
-      # 8️⃣ Wait for server
       - name: Wait for server
         run: sleep 5
 
-      # 9️⃣ Run Playwright E2E tests
+      # Run Playwright tests
       - name: Run Playwright tests
         run: npx playwright test --reporter=list
-
-      # 🔟 Simulated deploy step (optional)
-      - name: Simulated Deploy
-        if: success()
-        run: echo "🚀 Deployment simulated!"
