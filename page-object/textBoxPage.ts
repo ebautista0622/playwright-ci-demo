@@ -6,7 +6,7 @@ export class TextBoxPage extends HelperBase{
 
     constructor(page : Page){
         super(page)
-        this.usernameInput = page.locator('#userName')
+        this.usernameInput = page.locator('#userName11')
     }
 
     async fillUsername(inputUsername : string){
