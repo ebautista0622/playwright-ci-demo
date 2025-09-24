@@ -26,8 +26,8 @@ jobs:
         run: npm ci
 
       # 4️⃣ Build project (optional, kung may build step ka)
-      - name: Build project
-        run: npm run build
+      #- name: Build project
+      #   run: npm run build
 
       # 5️⃣ Run unit/integration tests (optional)
       - name: Run tests
