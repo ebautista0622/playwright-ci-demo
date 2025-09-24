@@ -40,7 +40,7 @@ jobs:
       # 📦 Upload Playwright artifacts kung may failure
       - name: Upload Playwright Artifacts
         if: failure() # Tatakbo lang kapag may failed tests
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: playwright-artifacts
           path: |
